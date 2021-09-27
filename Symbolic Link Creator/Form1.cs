@@ -66,7 +66,7 @@ namespace Symbolic_Link_Creator
 
             CmdLogic cl = new CmdLogic();
             //execute command
-            System.Diagnostics.Process.Start("CMD.exe", cl.GenerateCMDCommand(radio, toBeSelect_TB.Text, newFol_TB.Text, sourceName_TB.Text);
+            System.Diagnostics.Process.Start("CMD.exe", cl.GenerateCMDCommand(radio, toBeSelect_TB.Text, newFol_TB.Text, sourceName_TB.Text));
             //display label to let user know something happend
             info_Lab.Text = "Symbolic link created.";
         }
