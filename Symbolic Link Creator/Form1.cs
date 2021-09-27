@@ -1,4 +1,5 @@
-﻿using Symbolic_Link_Creator.Helpers;
+﻿using Symbolic_Link_Creator.AppLogic;
+using Symbolic_Link_Creator.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
