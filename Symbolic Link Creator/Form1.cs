@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Symbolic_Link_Creator.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -79,37 +80,6 @@ namespace Symbolic_Link_Creator
         {
             if (source_CB.Checked == true && toBeSelect_TB.Text.LastIndexOf("\\") != -1)
                 sourceName_TB.Text = toBeSelect_TB.Text.Substring(toBeSelect_TB.Text.LastIndexOf("\\") + 1);
-        }
-    }
-
-    public static class Helper
-    {
-        /// <summary>
-        /// Opens FolderBrowserDialog and returns selected path of selected folder.
-        /// </summary>
-        /// <returns>String FolderBrowserDialog.SelectedPath</returns>
-        public static string SetTextBoxText()
-        {
-            string tbtext = string.Empty;
-            FolderBrowserDialog fbd;
-            try
-            {
-                using (fbd = new FolderBrowserDialog())
-                {
-                    //open FolderBrowserDialog
-                    DialogResult result = fbd.ShowDialog();
-                                                    //check if there is folder selected
-                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                    {
-                        return fbd.SelectedPath;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException("Source: " + ex.Source + "\nError: " + ex.Message + "\nInnerEx: " + ((ex.InnerException == null) ? "null" : ex.InnerException.Message));
-            }
-            return tbtext;
         }
     }
 }
