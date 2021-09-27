@@ -62,15 +62,9 @@ namespace Symbolic_Link_Creator
         private void create_BT_Click(object sender, EventArgs e)
         {
             //check for selected RadioButton
-            string radio = "/J";
-            if (dir_RB.Checked == true)
-                radio = "/D";
-            else if (hard_RB.Checked == true)
-                radio = "/H";
-            else
-                radio = "/J";
-            //create command
-            string strCmd = string.Format("/C mklink {0} \"{2}\\{3}\" \"{1}\"", radio, toBeSelect_TB.Text, newFol_TB.Text, sourceName_TB.Text);
+            string radio = GetRadioSelect();
+
+            CmdLogic cl = new CmdLogic();
             //execute command
             System.Diagnostics.Process.Start("CMD.exe", strCmd);
             //display label to let user know something happend
@@ -81,6 +75,20 @@ namespace Symbolic_Link_Creator
         {
             if (source_CB.Checked == true && toBeSelect_TB.Text.LastIndexOf("\\") != -1)
                 sourceName_TB.Text = toBeSelect_TB.Text.Substring(toBeSelect_TB.Text.LastIndexOf("\\") + 1);
+        }
+
+        /// <summary>
+        /// Function returns cmd value based on Radio button selected
+        /// </summary>
+        /// <returns></returns>
+        private string GetRadioSelect()
+        {
+            if (dir_RB.Checked == true)
+                return "/D";
+            else if (hard_RB.Checked == true)
+                return "/H";
+            else
+                return "/J";
         }
     }
 }
